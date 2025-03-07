@@ -17,6 +17,8 @@ class DRMap extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final SelectedMapAssets = ref.watch(selectedMapAssetsProvider);
+    final allProvinces = ref.read(provincesListProvider);
+
     return Stack(
       children: <Widget>[
         SvgPicture.asset('assets/svgs/map_assets/baserd.svg'),
@@ -33,6 +35,20 @@ class DRMap extends ConsumerWidget {
           color: Colors.red,
         ),
 
+        //  Generates the list of provinces
+        ...List.generate(allProvinces.length, (index) {
+          final province = allProvinces[index];
+
+          return SvgPicture.asset(
+            'assets/svgs/provinces/${province.code}.svg',
+            colorFilter: ColorFilter.mode(
+              index == 20 ? Colors.red : Colors.white,
+              BlendMode.srcIn,
+            ),
+          );
+        }),
+
+        //  Generates all the assets of the map seas, names, rivers, etc.
         ...List.generate(SelectedMapAssets.length, (index) {
           final asset = SelectedMapAssets[index];
           final assetName =
