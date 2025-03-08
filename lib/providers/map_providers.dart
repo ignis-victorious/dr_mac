@@ -26,6 +26,10 @@ class SelectedMapAssets extends _$SelectedMapAssets {
       MapAssets.names,
     ];
   }
+
+  void update(List<MapAssets> selectedMapAssets) {
+    state = [...selectedMapAssets];
+  }
 }
 
 //  mockedProvincesProvider
@@ -37,7 +41,7 @@ List<Province> mockedProvinces(Ref ref) {
     {
       "name": "Distrito Nacional",
       "code": "01",
-      "identifier": "1001",
+      "identifier": "1001",   
       "regionCode": "10"
     },
     {
