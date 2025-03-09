@@ -75,5 +75,22 @@ final provincesListProvider =
     );
 
 typedef _$ProvincesList = AutoDisposeNotifier<List<Province>>;
+String _$selectedRegionHash() => r'42f343ed5e070fa193cc1cc7acb7510e1d34c333';
+
+/// See also [SelectedRegion].
+@ProviderFor(SelectedRegion)
+final selectedRegionProvider =
+    AutoDisposeNotifierProvider<SelectedRegion, MapRegions>.internal(
+      SelectedRegion.new,
+      name: r'selectedRegionProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$selectedRegionHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$SelectedRegion = AutoDisposeNotifier<MapRegions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

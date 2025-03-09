@@ -272,3 +272,14 @@ class ProvincesList extends _$ProvincesList {
     state = [...provinces];
   }
 }
+
+//  selectedRegionProvider
+@riverpod
+class SelectedRegion extends _$SelectedRegion {
+  @override
+  MapRegions build() => MapRegions.none;
+
+  void update(MapRegions selectedRegion) {
+    state = selectedRegion;
+  }
+}

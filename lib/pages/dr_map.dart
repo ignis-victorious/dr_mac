@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../widgets/all_provinces_list.dart';
 import '../widgets/drmap.dart';
 import '../widgets/map_assets_list.dart';
+import '../widgets/map_regions_list.dart';
 //  PARTS
 //  PROVIDERS
 //  ________________________
@@ -25,6 +26,7 @@ class DRMapApp extends StatelessWidget {
           ),
           Align(alignment: Alignment.topLeft, child: MapAssetsList()),
           Align(alignment: Alignment.topRight, child: AllProvincesList()),
+          Align(alignment: Alignment.bottomCenter, child: MapRegionsList()),
         ],
       ),
       // body: SvgPicture.asset('./assets/svgs/rd.svg'),

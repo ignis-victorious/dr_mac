@@ -18,7 +18,8 @@ class DRMap extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedMapAssets = ref.watch(selectedMapAssetsProvider);
     final allProvinces = ref.watch(provincesListProvider);
-    final SelectedProvinces = ref.watch(selectedProvincesProvider);
+    final selectedProvinces = ref.watch(selectedProvincesProvider);
+    final selectedRegion = ref.watch(selectedRegionProvider);
 
     return Stack(
       children: <Widget>[
@@ -41,13 +42,15 @@ class DRMap extends ConsumerWidget {
           final province = allProvinces[index];
           Color provinceColor = Color(0xFFFEFEE9);
 
-          if (SelectedProvinces.contains(province)) {
+          if (selectedProvinces.contains(province)) {
             provinceColor = Color.fromARGB(
               200,
               (index + 1) * 20,
               (index + 2) * 30,
               (index + 3) * 40,
             );
+          } else if (selectedRegion.provinces.contains(province.regionCode)) {
+            provinceColor = Colors.green;
           }
 
           return SvgPicture.asset(
@@ -67,7 +70,7 @@ class DRMap extends ConsumerWidget {
               asset == MapAssets.seas || asset == MapAssets.names
                   ? '${asset.name}_en'
                   : asset.name;
-          return SvgPicture.asset('assets/svgs/map_assets/${assetName}.svg');
+          return SvgPicture.asset('assets/svgs/map_assets/$assetName.svg');
         }),
       ],
     );
