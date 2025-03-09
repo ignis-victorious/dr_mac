@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 //  Import FILES
+import '../widgets/all_provinces_list.dart';
 import '../widgets/drmap.dart';
 import '../widgets/map_assets_list.dart';
 //  PARTS
@@ -23,6 +24,7 @@ class DRMapApp extends StatelessWidget {
             child: InteractiveViewer(clipBehavior: Clip.none, child: DRMap()),
           ),
           Align(alignment: Alignment.topLeft, child: MapAssetsList()),
+          Align(alignment: Alignment.topRight, child: AllProvincesList()),
         ],
       ),
       // body: SvgPicture.asset('./assets/svgs/rd.svg'),
