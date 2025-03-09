@@ -36,7 +36,7 @@ class AllProvincesList extends ConsumerWidget {
 
         children: <Widget>[
           Text(
-            'Provinces:',
+            'Provinces',
             style: textTheme.headlineSmall!.copyWith(
               fontWeight: FontWeight.bold,
             ),
@@ -73,7 +73,12 @@ class AllProvincesList extends ConsumerWidget {
                 value:
                     allProvinces.length ==
                     ref.watch(selectedProvincesProvider).length,
-                title: const Text('All Provinces'),
+                title: Text(
+                  'All Provinces',
+                  style: textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 onChanged: (value) {
                   if (value!) {
                     ref

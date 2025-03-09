@@ -16,8 +16,9 @@ class DRMap extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final SelectedMapAssets = ref.watch(selectedMapAssetsProvider);
-    final allProvinces = ref.read(provincesListProvider);
+    final selectedMapAssets = ref.watch(selectedMapAssetsProvider);
+    final allProvinces = ref.watch(provincesListProvider);
+    final SelectedProvinces = ref.watch(selectedProvincesProvider);
 
     return Stack(
       children: <Widget>[
@@ -38,19 +39,30 @@ class DRMap extends ConsumerWidget {
         //  Generates the list of provinces
         ...List.generate(allProvinces.length, (index) {
           final province = allProvinces[index];
+          Color provinceColor = Color(0xFFFEFEE9);
+
+          if (SelectedProvinces.contains(province)) {
+            provinceColor = Color.fromARGB(
+              200,
+              (index + 1) * 20,
+              (index + 2) * 30,
+              (index + 3) * 40,
+            );
+          }
 
           return SvgPicture.asset(
             'assets/svgs/provinces/${province.code}.svg',
             colorFilter: ColorFilter.mode(
-              index == 20 ? Colors.red : Colors.white,
+              provinceColor,
+              // index == 20 ? Colors.red : Colors.white,
               BlendMode.srcIn,
             ),
           );
         }),
 
         //  Generates all the assets of the map seas, names, rivers, etc.
-        ...List.generate(SelectedMapAssets.length, (index) {
-          final asset = SelectedMapAssets[index];
+        ...List.generate(selectedMapAssets.length, (index) {
+          final asset = selectedMapAssets[index];
           final assetName =
               asset == MapAssets.seas || asset == MapAssets.names
                   ? '${asset.name}_en'
