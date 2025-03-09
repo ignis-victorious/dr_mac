@@ -6,7 +6,7 @@ part of 'map_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mockedProvincesHash() => r'ea3b422fb3089603f6e48f78b170912397d93281';
+String _$mockedProvincesHash() => r'afe381ccbe1935578d00c7b17e5c58c3c6b71ff6';
 
 /// See also [mockedProvinces].
 @ProviderFor(mockedProvinces)
@@ -24,7 +24,7 @@ final mockedProvincesProvider = AutoDisposeProvider<List<Province>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef MockedProvincesRef = AutoDisposeProviderRef<List<Province>>;
-String _$selectedMapAssetsHash() => r'cf23706e32ad22e0ad282f627e38738d4fef00d5';
+String _$selectedMapAssetsHash() => r'd3bfd4bb5103ef6d09e9bedeb9d317c7348ae064';
 
 /// See also [SelectedMapAssets].
 @ProviderFor(SelectedMapAssets)
@@ -41,6 +41,23 @@ final selectedMapAssetsProvider =
     );
 
 typedef _$SelectedMapAssets = AutoDisposeNotifier<List<MapAssets>>;
+String _$selectedProvincesHash() => r'fe8ab6b781a9ff832e4dba0684f33386eeb0cf70';
+
+/// See also [SelectedProvinces].
+@ProviderFor(SelectedProvinces)
+final selectedProvincesProvider =
+    AutoDisposeNotifierProvider<SelectedProvinces, List<Province>>.internal(
+      SelectedProvinces.new,
+      name: r'selectedProvincesProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$selectedProvincesHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$SelectedProvinces = AutoDisposeNotifier<List<Province>>;
 String _$provincesListHash() => r'44c6f813e51185db48446d96a79fe6e6ecec9789';
 
 /// See also [ProvincesList].

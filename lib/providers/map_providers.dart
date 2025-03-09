@@ -32,6 +32,19 @@ class SelectedMapAssets extends _$SelectedMapAssets {
   }
 }
 
+//  selectedProvincesProvider
+@riverpod
+class SelectedProvinces extends _$SelectedProvinces {
+  @override
+  List<Province> build() {
+    return [];
+  }
+
+  void update(List<Province> selectedProvinces) {
+    state = [...selectedProvinces];
+  }
+}
+
 //  mockedProvincesProvider
 @riverpod
 List<Province> mockedProvinces(Ref ref) {
