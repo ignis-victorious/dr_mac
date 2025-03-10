@@ -1,7 +1,7 @@
 //  ________________________
 //  Import LIBRARIES
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 //  Import FILES
@@ -281,5 +281,16 @@ class SelectedRegion extends _$SelectedRegion {
 
   void update(MapRegions selectedRegion) {
     state = selectedRegion;
+  }
+}
+
+//  appThemeProvider
+@riverpod
+class AppTheme extends _$AppTheme {
+  @override
+  ThemeMode build() => ThemeMode.system;
+
+  void update(ThemeMode themeMode) {
+    state = themeMode;
   }
 }
